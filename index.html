@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tee & Pego 💙</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(to bottom, #cfe8ff, #0b1a3a);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* LOGIN */
+#login {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #89c2ff;
+    cursor: pointer;
+}
+
+/* MAIN */
+#main {
+    display: none;
+    padding: 20px;
+}
+
+/* SECTIONS */
+.section {
+    background: rgba(255,255,255,0.08);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 15px;
+}
+
+/* HEARTS */
+.heart {
+    position: fixed;
+    color: #a9d6ff;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    from {transform: translateY(100vh);}
+    to {transform: translateY(-10vh);}
+}
+
+/* TEXTAREA */
+textarea {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+    <h1>💙 Tee & Chipego 💙</h1>
+    <p>Enter the password</p>
+    <input type="password" id="pass">
+    <button onclick="checkPass()">Enter</button>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+    <h1>💙 Our Little World 💙</h1>
+
+    <!-- LETTER -->
+    <div class="section">
+        <h2>💌 Secret Letter</h2>
+        <p>
+        Hi Tee 😊<br><br>
+
+        I know right... this is so unexpected... like I also don't know but I just thought of doing it so here it goes now I'm shy 🤭🫣<br><br>
+
+        My baby, my love, my boyfriend, my future and so many other things.<br><br>
+
+        I'm so grateful to have you. You're my endgame. I love you Temwani ❤️
+        </p>
+    </div>
+
+    <!-- QUESTIONS -->
+    <div class="section">
+        <h2>🌙 Midnight Questions</h2>
+        <p id="question">Click below for a question 💙</p>
+        <button onclick="newQ()">New Question</button>
+    </div>
+
+    <!-- LOVE JAR -->
+    <div class="section">
+        <h2>❤️ Love Jar</h2>
+        <button onclick="loveJar()">Open Heart</button>
+        <p id="love"></p>
+    </div>
+
+    <!-- MEMORIES -->
+    <div class="section">
+        <h2>📸 Memories</h2>
+        <input type="file"><br><br>
+        <textarea placeholder="Write a memory..."></textarea>
+    </div>
+
+    <!-- FUTURE -->
+    <div class="section">
+        <h2>🎁 Future Dreams</h2>
+        <textarea placeholder="Add your dreams here..."></textarea>
+    </div>
+
+</div>
+
+<script>
+
+let questions = [
+"When did you know I was the one?",
+"What do you want us to try together?",
+"Is there anything I should improve?",
+"Do I understand you enough?",
+"What direction do you see us going?",
+"What's your end goal with me?",
+"What's something you’re protective of about me?",
+"If we went clubbing, how would it go?",
+"What scares you about relationships?",
+"Do you trust me fully?",
+"What's your favourite thing about me?"
+];
+
+let love = [
+"I love you",
+"My husband",
+"You are an amazing person",
+"You have a beautiful heart",
+"You are enough, never doubt that",
+"Never give up baby",
+"You will succeed and be a rich successful man"
+];
+
+function checkPass(){
+    let p = document.getElementById("pass").value;
+    if(p === "money"){
+        document.getElementById("login").style.display = "none";
+        document.getElementById("main").style.display = "block";
+        createHearts();
+    } else {
+        alert("Wrong password 💙");
+    }
+}
+
+function newQ(){
+    let q = questions[Math.floor(Math.random()*questions.length)];
+    document.getElementById("question").innerText = q;
+}
+
+function loveJar(){
+    let l = love[Math.floor(Math.random()*love.length)];
+    document.getElementById("love").innerText = l;
+}
+
+function createHearts(){
+    setInterval(() => {
+        let h = document.createElement("div");
+        h.classList.add("heart");
+        h.innerHTML = "💙";
+        h.style.left = Math.random()*100 + "vw";
+        h.style.fontSize = (10 + Math.random()*20) + "px";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 6000);
+    }, 500);
+}
+
+</script>
+
+</body>
+</html>
