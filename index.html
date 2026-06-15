@@ -2,24 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Tee & Pego 💖</title>
+<title>Tee & Chipego 💖 Cinematic Story</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
-/* 🌸 SOFT ROMANTIC THEME */
+/* 🎬 CINEMATIC BACKGROUND */
 body{
 margin:0;
 font-family:Arial;
-background: linear-gradient(135deg,#fff1f6,#f7f3ff,#f0f7ff);
+background: radial-gradient(circle at top,#fff1f6,#f7f3ff,#eaf3ff);
 color:#2b2b2b;
 overflow-x:hidden;
+}
+
+/* 🌌 INTRO SCREEN */
+#intro{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#fff1f6,#f7f3ff);
+animation:fadeOut 3s ease 3s forwards;
+position:fixed;
+width:100%;
+z-index:999;
+}
+
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
 }
 
 /* 🔐 LOGIN */
 #login{
 height:100vh;
-display:flex;
+display:none;
 flex-direction:column;
 justify-content:center;
 align-items:center;
@@ -40,15 +59,17 @@ padding:10px 18px;
 border-radius:25px;
 border:none;
 background:#f4c2d7;
-color:#2b2b2b;
 cursor:pointer;
 transition:0.3s;
-margin-top:10px;
 }
 
 button:hover{
 transform:scale(1.05);
-background:#f7d6e6;
+}
+
+/* 🎬 APP */
+#app{
+display:none;
 }
 
 /* NAV */
@@ -57,10 +78,11 @@ display:flex;
 flex-wrap:wrap;
 justify-content:center;
 background:rgba(255,255,255,0.5);
-backdrop-filter: blur(6px);
+backdrop-filter: blur(10px);
 padding:10px;
 position:sticky;
 top:0;
+z-index:10;
 }
 
 nav button{margin:5px;}
@@ -69,20 +91,26 @@ nav button{margin:5px;}
 .section{
 display:none;
 padding:20px;
+animation:fadeIn 0.8s ease;
 }
 
 .active{display:block;}
 
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
+}
+
 .card{
-background:rgba(255,255,255,0.7);
-backdrop-filter: blur(8px);
+background:rgba(255,255,255,0.75);
+backdrop-filter: blur(10px);
 padding:15px;
 border-radius:15px;
 margin-top:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* 💙 FLOATING HEARTS */
+/* 💖 HEARTS */
 .heart{
 position:fixed;
 color:#f4a7c1;
@@ -94,7 +122,7 @@ from{transform:translateY(100vh);}
 to{transform:translateY(-10vh);}
 }
 
-/* ❤️ LOVE POPUP */
+/* 💌 POPUP */
 .popup{
 position:fixed;
 top:50%;
@@ -104,8 +132,8 @@ background:white;
 padding:20px;
 border-radius:15px;
 display:none;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+z-index:1000;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 </style>
@@ -113,31 +141,39 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 
 <body>
 
+<!-- 🌌 INTRO -->
+<div id="intro">
+<h1>💖 A Love Story Begins 💖</h1>
+<p>“Some stories are not told… they are felt.”</p>
+</div>
+
 <!-- 🔐 LOGIN -->
 <div id="login">
-<h1>💖 Tee & Chipego 💖</h1>
-<p>Enter password to open our world</p>
+<h1>💖 Tee & Pego 💖</h1>
+<p>Enter password to continue</p>
 <input type="password" id="pass">
 <button onclick="login()">Enter</button>
 </div>
 
-<!-- 🌸 APP -->
-<div id="app" style="display:none;">
+<!-- 🎬 APP -->
+<div id="app">
 
 <nav>
 <button onclick="show('home')">Home</button>
 <button onclick="show('letter')">Letter</button>
+<button onclick="show('top')">Before You Answer</button>
 <button onclick="show('questions')">Questions</button>
 <button onclick="show('love')">Love Jar</button>
 <button onclick="show('memories')">Memories</button>
 <button onclick="show('future')">Future</button>
+<button onclick="show('inbox')">Inbox 💌</button>
 </nav>
 
 <!-- 🏡 HOME -->
 <div id="home" class="section active">
 <div class="card">
-<h2>💖 Welcome Tee</h2>
-<p>Our soft little world made with love ✨</p>
+<h2>💖 Welcome to Our Story</h2>
+<p>Every moment here is a memory waiting to be felt ✨</p>
 </div>
 </div>
 
@@ -146,17 +182,33 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 <div class="card">
 <h2>💌 Secret Letter</h2>
 <p>
-Hi Tee 😊<br><br>
+Hi Tee❤️ <br><br>
 
-I know right... this is so unexpected... like I also don't know but I just thought of doing it so here it goes now I'm shy 🤭🫣<br><br>
+ I know right... this is so unexpected... like I also don't know but I just thought of doing it so here it goes now I'm shy 🤭🫣<br><br>
         
-        I never would have imagined that we woulde have gotten this far.. i cant even seem to understand how we got to this stage my cuddle buddy..I'm so grateful to have you as my partner. We might have our misunderstandings, our fights, or whatever problems we face, but you're always going to be my man.
+        I never would have imagined that we woulde have gotten this far.. i cant even seem to understand how we got to this stage my cuddle buddy..I
+        'm so grateful to have you as my partner. We might have our misunderstandings, our fights, or whatever problems we face, but you're always going to be my man.
 
-I genuinely don't care what other people say. What matters to me is what the both of us want for our relationship, and that's all that matters.
-My baby, my love, my boyfriend, my future and so many things…<br><br>
+I genuinely don't care what other people say. What matters to me is what the both of us want for our relationship, 
+        and that's all that matters.My calm in my chaos. 
+        The love story i nevr expected
+My baby, my love, my boyfriend, my future and so many other things…<br><br>
 
-You're my endgame. I love you Temwani ❤️
+You're my endgame. I love you Temwani ❤️       
+
 </p>
+</div>
+</div>
+
+<!-- 🌙 TOP QUESTIONS -->
+<div id="top" class="section">
+<div class="card">
+<h2>🌙 Before You Answer Me…</h2>
+<p>What do you feel our relationship is right now?</p>
+<p>What do you wish I understood without words?</p>
+<p>Do you feel safe with me emotionally?</p>
+<p>What do you miss about us?</p>
+<p>If I disappeared for a day, what would you feel?</p>
 </div>
 </div>
 
@@ -165,8 +217,7 @@ You're my endgame. I love you Temwani ❤️
 <div class="card">
 <h2>🌙 Midnight Questions</h2>
 
-<p id="q">Click for a question 💖</p>
-
+<p id="q">Press for a question 💖</p>
 <button onclick="newQ()">New Question</button>
 
 <textarea id="a" placeholder="Write your answer..."></textarea>
@@ -179,7 +230,7 @@ You're my endgame. I love you Temwani ❤️
 <div id="love" class="section">
 <div class="card">
 <h2>❤️ Love Jar</h2>
-<p>Tap a heart to reveal love 💖</p>
+<p>Tap a heart 💖</p>
 
 <button onclick="openLove(0)">💖</button>
 <button onclick="openLove(1)">💖</button>
@@ -191,7 +242,7 @@ You're my endgame. I love you Temwani ❤️
 </div>
 </div>
 
-<!-- 💬 POPUP -->
+<!-- 💌 POPUP -->
 <div id="popup" class="popup">
 <p id="popupText"></p>
 <button onclick="closePopup()">Close</button>
@@ -201,12 +252,9 @@ You're my endgame. I love you Temwani ❤️
 <div id="memories" class="section">
 <div class="card">
 <h2>📸 Memories</h2>
-
 <input type="file" id="img"><br>
 <textarea id="mem" placeholder="Write memory..."></textarea>
-
 <button onclick="saveMem()">Save Memory</button>
-
 <div id="memList"></div>
 </div>
 </div>
@@ -215,12 +263,17 @@ You're my endgame. I love you Temwani ❤️
 <div id="future" class="section">
 <div class="card">
 <h2>🎁 Future Dreams</h2>
-
-<textarea id="dream" placeholder="Add dream..."></textarea>
-
+<textarea id="dream"></textarea>
 <button onclick="saveDream()">Save Dream</button>
-
 <div id="dreamList"></div>
+</div>
+</div>
+
+<!-- 💌 INBOX -->
+<div id="inbox" class="section">
+<div class="card">
+<h2>💌 Inbox (Your Love Responses)</h2>
+<div id="inboxList"></div>
 </div>
 </div>
 
@@ -228,13 +281,14 @@ You're my endgame. I love you Temwani ❤️
 
 <script>
 
-/* 💖 PASSWORD */
+/* 💖 LOGIN */
 function login(){
 if(document.getElementById("pass").value==="money"){
+document.getElementById("intro").style.display="none";
 document.getElementById("login").style.display="none";
 document.getElementById("app").style.display="block";
 hearts();
-}else alert("Wrong password 💖");
+}else alert("Wrong 💖");
 }
 
 /* NAV */
@@ -245,13 +299,19 @@ document.getElementById(id).classList.add("active");
 
 /* 🌙 QUESTIONS */
 let questions=[
-"When did you know I was the one?",
-"What do you want us to try together?",
-"Do I understand you properly?",
-"Where do you see us going?",
-"What's your biggest hope for us?",
-"What's something you're scared to tell me?",
-"What makes you feel loved?"
+"When did you know or what moment made you think yes shes the one for me ? ",
+"What do you want us to start as a couple like a hobby or activity ",
+ "Do you think there are friendships on your side or on my side that might or want to disturb  our relationship? ",       
+"What do you want us to build together?",
+"What makes you feel loved?",
+"whats something about me tha t voure protective of? ",
+" What direction do you see ou r relationships going in",
+ "if we are to ever go clubbin g together how do you think it will go? ",
+"Where do you see us in 2 years?",
+"What scares you in love?"
+  "is there anything you want m e to change?",
+"What do you think about the sexual aspect of our relationship? ",
+  "Do you think I sometimes do not understand vou or understand what vo ure going through?",
 ];
 
 function newQ(){
@@ -262,18 +322,63 @@ document.getElementById("a").value=localStorage.getItem(q)||"";
 
 function save(){
 let q=document.getElementById("q").innerText;
-localStorage.setItem(q,document.getElementById("a").value);
+let a=document.getElementById("a").value;
+
+localStorage.setItem(q,a);
+
+/* 💌 INBOX SYSTEM */
+let inbox=JSON.parse(localStorage.getItem("inbox")||"[]");
+inbox.push({q,a});
+localStorage.setItem("inbox",JSON.stringify(inbox));
+loadInbox();
 }
 
-/* ❤️ LOVE JAR */
+/* 💌 INBOX */
+function loadInbox(){
+let inbox=JSON.parse(localStorage.getItem("inbox")||"[]");
+document.getElementById("inboxList").innerHTML=
+inbox.map(i=>`
+<div class="card">
+<p><b>Q:</b> ${i.q}</p>
+<p><b>A:</b> ${i.a}</p>
+</div>
+`).join("");
+}
+
+/* ❤️ LOVE */
 let love=[
 "I love you",
 "My husband",
-"You are an amazing person",
+        "My everything:,
+        "Im always here for you no matter what ",
+        "You are not alone",
+"You are amazing",
+"You are enough",
+   "" You're my safe place.",
+        " Your smile heals me.", 
+        " The world is better because vo u're in it."      
+"You are my peace",
+"You will succeed",
+ "I believe in every dream you have",
+ "I'm so proud of you.",
+ "Thank you for choosing me.",
+ " You're my safe place.", 
+" Your smile heals me.",
+ "Mv favourite notification is vourS.",
+ " You're going to make an incredible husband and father.",
+  " I pray all your dreams come true.", 
+" You deserve happiness.", 
+"I admire your strength.", "You make me feel loved.",
+" You're my endgame.", 
+" Forever won't be enough with u"
 "You have a beautiful heart",
 "You are enough, never doubt that",
 "Never give up baby",
-"You will succeed and be a rich successful man"
+ "" You're my safe place.",
+ " Your smile heals me.", 
+" My world is better because vou're in it."
+"You will succeed and be a rich successful man"       
+"You are my forever"
 ];
 
 function openLove(i){
@@ -293,11 +398,10 @@ let text=document.getElementById("mem").value;
 let reader=new FileReader();
 reader.onload=function(){
 let list=JSON.parse(localStorage.getItem("mem")||"[]");
-list.push({img:reader.result,text:text});
+list.push({img:reader.result,text});
 localStorage.setItem("mem",JSON.stringify(list));
 showMem();
 };
-
 if(img) reader.readAsDataURL(img);
 }
 
@@ -312,7 +416,7 @@ list.map(m=>`
 `).join("");
 }
 
-/* 🎁 FUTURE DREAMS */
+/* 🎁 DREAMS */
 function saveDream(){
 let d=document.getElementById("dream").value;
 let list=JSON.parse(localStorage.getItem("dream")||"[]");
@@ -327,7 +431,7 @@ document.getElementById("dreamList").innerHTML=
 list.map(d=>`<div class="card">💖 ${d}</div>`).join("");
 }
 
-/* 💙 HEARTS */
+/* 💖 HEARTS */
 function hearts(){
 setInterval(()=>{
 let h=document.createElement("div");
@@ -339,6 +443,7 @@ setTimeout(()=>h.remove(),6000);
 },500);
 }
 
+loadInbox();
 showMem();
 showDream();
 
